@@ -54,8 +54,8 @@ The production build will be in the `dist` folder.
 
 ## 📫 Contact
 
-- **Email**: pratyushsharma256feb@gmail.com
-- **LinkedIn**: [linkedin.com/in/pratyushsharma2520](https://linkedin.com/in/pratyushsharma2520)
+- **Email**: pratyushsharma25feb@gmail.com
+- **LinkedIn**: [linkedin.com/in/pratyushsharma2529](https://linkedin.com/in/pratyushsharma2529)
 - **GitHub**: [github.com/Pratyush2529](https://github.com/Pratyush2529)
 
 ---
