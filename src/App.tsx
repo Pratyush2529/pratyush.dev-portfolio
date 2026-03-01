@@ -103,7 +103,7 @@ const ExperienceCard = ({ exp, index }: { exp: Experience, index: number }) => {
   return (
     <div
       ref={cardRef}
-      className={`relative mb-8 pl-8 md:pl-12 transition-all duration-400 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+      className={`relative pb-16 pl-8 md:pl-12 transition-all duration-400 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
         }`}
       style={{
         transitionDelay: `${index * 100}ms`,
