@@ -52,7 +52,7 @@ const SectionTitle = ({ children }: { children: React.ReactNode }) => (
   </h2>
 );
 
-const ExperienceCard = ({ exp, index, isPromotion }: { exp: Experience, index: number, isPromotion?: boolean }) => {
+const ExperienceCard = ({ exp, index }: { exp: Experience, index: number }) => {
   const [isVisible, setIsVisible] = React.useState(false);
   const [scrollY, setScrollY] = React.useState(0);
   const cardRef = React.useRef<HTMLDivElement>(null);
@@ -94,7 +94,8 @@ const ExperienceCard = ({ exp, index, isPromotion }: { exp: Experience, index: n
   const companyLinks: Record<string, string> = {
     'Jolt': 'https://www.thejoltapp.com',
     'SecNinjaz Technologies LLP': 'https://www.secninjaz.com',
-    'Deva Consultancy Services': 'https://devaconsultancy.com'
+    'Deva Consultancy Services': 'https://devaconsultancy.com',
+    'StapuBox Pvt Ltd': 'https://stapubox.com/'
   };
 
   const link = companyLinks[exp.company];
@@ -122,12 +123,7 @@ const ExperienceCard = ({ exp, index, isPromotion }: { exp: Experience, index: n
       <div
         className="relative border border-white/10 rounded-2xl p-8 bg-black/40 backdrop-blur-sm hover:border-white/30 hover:shadow-[0_0_30px_rgba(255,255,255,0.1)] hover:scale-105 hover:-translate-y-2 active:scale-110 active:-translate-y-3 transition-all duration-300 group cursor-pointer"
       >
-        {/* Promotion Badge */}
-        {isPromotion && (
-          <div className="absolute -top-3 left-8 inline-flex items-center gap-2 px-4 py-1.5 bg-black border border-white/20 rounded-full shadow-lg">
-            <span className="text-xs font-display uppercase tracking-widest text-white">↑ Promotion</span>
-          </div>
-        )}
+        {/* Promotion Badge (Removed) */}
 
         {/* Period */}
         <div className="mb-3 text-xs text-neutral-500 font-display uppercase tracking-widest">{exp.period}</div>
@@ -263,12 +259,24 @@ function App() {
   }, []);
 
   const skills: Skill[] = [
-    { category: "Languages", items: ["C++", "JavaScript", "TypeScript", "SQL", "HTML", "CSS"] },
-    { category: "Frontend", items: ["React.js", "Next.js", "TailwindCSS", "Vite", "Redux"] },
-    { category: "Backend & Tools", items: ["Node.js", "Express.js", "Socket.io", "MongoDB", "Firebase", "Git", "GitHub", "AWS (EC2)", "Postman", "Vercel", "Render", "VS Code"] },
+    { category: "Languages", items: ["C++", "Java", "JavaScript", "TypeScript", "SQL", "HTML", "CSS"] },
+    { category: "Frontend", items: ["React.js", "React Native", "Next.js", "TailwindCSS", "Vite", "Redux"] },
+    { category: "Backend & Tools", items: ["Node.js", "Express.js", "Spring Boot", "MySQL", "Socket.io", "MongoDB", "Firebase", "Git", "GitHub", "AWS (EC2)", "Postman", "Vercel", "Render", "VS Code"] },
   ];
 
   const experience: Experience[] = [
+    {
+      role: "Full-Stack Intern",
+      company: "StapuBox Pvt Ltd",
+      period: "Jan 2026 - Present",
+      type: "Internship",
+      points: [
+        "Architecting a newly designed, highly optimized home page for the platform to drive better user retention and elevate the overall user experience.",
+        "Engineered dynamic profile previews for seamless sharing across social platforms like WhatsApp and Instagram, boosting organic user acquisition.",
+        "Developing scalable full-stack features—including player/coach profiles, squad creation, and event management—leveraging React Native, Java Spring Boot, and MySQL."
+      ],
+      appLink: "https://play.google.com/store/apps/details?id=com.stapubox.stapubox&hl=en_IN"
+    },
     {
       role: "Front End Developer Intern",
       company: "SchoolForAll",
@@ -460,18 +468,22 @@ function App() {
                     {skill.items.map((item, j) => {
                       const techLinks: Record<string, string> = {
                         'C++': 'https://en.cppreference.com/w/cpp',
+                        'Java': 'https://www.java.com',
                         'JavaScript': 'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
                         'TypeScript': 'https://www.typescriptlang.org',
                         'SQL': 'https://www.mysql.com',
                         'HTML': 'https://developer.mozilla.org/en-US/docs/Web/HTML',
                         'CSS': 'https://developer.mozilla.org/en-US/docs/Web/CSS',
                         'React.js': 'https://react.dev',
+                        'React Native': 'https://reactnative.dev',
                         'Next.js': 'https://nextjs.org',
                         'TailwindCSS': 'https://tailwindcss.com',
                         'Vite': 'https://vitejs.dev',
                         'Redux': 'https://redux.js.org',
                         'Node.js': 'https://nodejs.org',
                         'Express.js': 'https://expressjs.com',
+                        'Spring Boot': 'https://spring.io/projects/spring-boot',
+                        'MySQL': 'https://www.mysql.com',
                         'Socket.io': 'https://socket.io',
                         'MongoDB': 'https://www.mongodb.com',
                         'Firebase': 'https://firebase.google.com',
@@ -485,18 +497,22 @@ function App() {
                       };
                       const iconMap: Record<string, string> = {
                         'C++': 'cplusplus',
+                        'Java': 'coffeescript',
                         'JavaScript': 'javascript',
                         'TypeScript': 'typescript',
                         'SQL': 'mysql',
                         'HTML': 'html5',
                         'CSS': 'css',
                         'React.js': 'react',
+                        'React Native': 'react',
                         'Next.js': 'nextdotjs',
                         'TailwindCSS': 'tailwindcss',
                         'Vite': 'vite',
                         'Redux': 'redux',
                         'Node.js': 'nodedotjs',
                         'Express.js': 'express',
+                        'Spring Boot': 'springboot',
+                        'MySQL': 'mysql',
                         'Socket.io': 'socketdotio',
                         'MongoDB': 'mongodb',
                         'Firebase': 'firebase',
@@ -541,14 +557,12 @@ function App() {
         <SectionTitle>EXPERIENCE</SectionTitle>
         <div className="max-w-4xl mx-auto">
           {experience.map((exp, i) => {
-            const isPromotion = i > 0
 
             return (
               <ExperienceCard
                 key={i}
                 exp={exp}
                 index={i}
-                isPromotion={isPromotion}
               />
             );
           })}
