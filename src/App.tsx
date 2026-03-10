@@ -654,7 +654,7 @@ function App() {
               <span className="max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-xs transition-all duration-300 font-display uppercase text-sm tracking-wider">LinkedIn</span>
             </a>
             <a
-              href="https://drive.google.com/file/d/1vs5d7SJDBgSpXCvWdEkV6KMpOTAesd3F/view?usp=drive_link"
+              href="https://drive.google.com/file/d/1Jw8kJwEVM6RhQcMcPrginwR_VyKZA5_r/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="group relative text-neutral-500 hover:text-black transition-all duration-300 flex items-center gap-2 px-4 py-2 rounded-full hover:bg-white overflow-hidden"
